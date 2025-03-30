@@ -1,0 +1,158 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Number Calculator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .formula-box {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 10px 0;
+        }
+        button:hover {
+            background-color: #3e8e41;
+        }
+        #result {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border-radius: 8px;
+            font-size: 18px;
+            display: none;
+        }
+        .calculation-steps {
+            margin-top: 25px;
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .step {
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        .sum-line {
+            font-weight: bold;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #4CAF50;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin panel...</h1>
+        <p>Calculate the sum of a number divided by integers 2 through 10 plus the original number</p>
+        
+        <div class="formula-box">
+            <strong>Formula:</strong> 
+            <div style="margin-top: 5px;">Sum = x + (x ÷ 2) + (x ÷ 3) + ... + (x ÷ 10)</div>
+        </div>
+        
+        <input type="number" id="inputNumber" placeholder="Enter your number (x)" step="any">
+        <button onclick="calculate()">Calculate Sum</button>
+        
+        <div id="result">
+            <strong>Final Result:</strong> <span id="finalResult"></span>
+        </div>
+        
+        <div id="calculationSteps" class="calculation-steps" style="display: none;">
+            <h3>Detailed Calculation</h3>
+            <div id="steps"></div>
+            <div class="sum-line">Total Sum: <span id="sumResult"></span></div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            // Get input value
+            const input = document.getElementById('inputNumber').value;
+            const x = parseFloat(input);
+            
+            // Validate input
+            if (isNaN(x)) {
+                alert("Please enter a valid number");
+                return;
+            }
+            
+            let sum = x; // Start with the original number
+            let stepsHTML = `
+                <div class="step"><strong>Original number (x):</strong> ${x}</div>
+                <div style="margin: 15px 0 10px;"><strong>Division steps:</strong></div>
+            `;
+            
+            // Divide by numbers 2 through 10 and add to sum
+            for (let i = 2; i <= 10; i++) {
+                const divisionResult = x / i;
+                sum += divisionResult;
+                stepsHTML += `<div class="step">${x} ÷ ${i} = ${divisionResult.toFixed(4)}</div>`;
+            }
+            
+            // Add sum information
+            stepsHTML += `<div class="step">Adding all values together...</div>`;
+            
+            // Display results
+            document.getElementById('finalResult').textContent = sum.toFixed(4);
+            document.getElementById('sumResult').textContent = sum.toFixed(4);
+            document.getElementById('steps').innerHTML = stepsHTML;
+            
+            // Show result sections
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('calculationSteps').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

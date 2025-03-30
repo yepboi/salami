@@ -1,0 +1,46 @@
+body {
+    font-size: 15pt;
+    background-image: url("bg.jpg");
+    background-size: cover;
+    background-position: absolute;
+    background-repeat: none;
+    
+}
+
+.h1{
+  font-size: 25px;
+  text-align: center;
+  color: lightgrey;
+  font-family: "Rochester", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.p1{
+  font-size: 15px;
+
+  font-family: Arial, helvetica, sans-serif;
+
+
+}
+
+.div1{
+  text-align: center;
+  margin-top: 40px;
+}
+.input{
+  text-align: center;
+  border: 3;
+  
+  
+}
+.but{
+  text-align: center;
+}
+.red{
+  color: darkred;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 400px;
+  
+}

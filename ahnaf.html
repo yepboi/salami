@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Number Calculator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .formula-box {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 10px 0;
+        }
+        button:hover {
+            background-color: #3e8e41;
+        }
+        .iq{
+          color: royalblue;
+        }
+        #result {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border-radius: 8px;
+            font-size: 18px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Advanced Salami Calculator</h1>
+        <p>Only applicable for <i class="iq"> Ahnaf. </i></p>
+        
+        <div class="formula-box">
+            <strong>Note:</strong> 
+            <div style="margin-top: 5px;"><i>It's not how much we give, but how much love we put into giving." </i> <b>- Mother Teresa </b>
+            <br>
+            <br>
+            So, don't think to much.</div>
+        </div>
+        
+        <input type="number" id="inputNumber" placeholder="Enter your contribution" step="any">
+        <button onclick="calculate()">Calculate Sum</button>
+        
+        <div id="result">
+            <strong>You get:</strong> <span id="finalResult"></span>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            // Get input value
+            const input = document.getElementById('inputNumber').value;
+            const x = parseFloat(input);
+            
+            // Validate input
+            if (isNaN(x)) {
+                alert("Please enter a valid number");
+                return;
+            }
+            
+            let sum = x; // Start with the original number
+            
+            // Divide by numbers 2 through 10 and add to sum
+            for (let i = 2; i <= 10; i++) {
+  sum1 = x / i;
+}
+for (let i = 2; i <= 9; i++) {
+  sum2 = sum1 + (x / i);
+
+}
+            for (let i = 2; i <= 8; i++) {
+  sum3 = sum2 + (x / i);
+
+}
+for (let i = 2; i <= 7; i++) {
+  sum4 = sum3 + (x / i);
+
+}
+for (let i = 2; i <= 6; i++) {
+  sum5 = sum4 + (x / i);
+
+}
+for (let i = 2; i <= 5; i++) {
+  sum6 = sum5 + (x / i);
+
+}
+for (let i = 2; i <= 4; i++) {
+  sum = sum6 + (x / i);
+
+}
+            // Display final result
+            document.getElementById('finalResult').textContent = sum.toFixed(4);
+            document.getElementById('result').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
